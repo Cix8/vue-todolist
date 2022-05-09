@@ -23,6 +23,11 @@ const app = new Vue(
         el: '#root',
         data: {
             mainData: objArray
+        },
+        methods: {
+            removeTodo: function(i) {
+                this.mainData.splice(i, 1);
+            }
         }
     }
 )

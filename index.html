@@ -21,8 +21,13 @@
     <div id="root">
         <div class="list-container">
             <ul>
-                <li v-for="item in mainData">
-                    <span :class="item.done === true ? 'done' : ''">{{ item.text }}</span>
+                <li v-for="(item, index) in mainData">
+                    <div class="text">
+                        <span :class="item.done === true ? 'done' : ''">{{ item.text }}</span>
+                    </div>
+                    <div class="icon-container">
+                        <i @click="removeTodo(index)" class="fas fa-trash-alt"></i>
+                    </div>
                 </li>
             </ul>
         </div>
