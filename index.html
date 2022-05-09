@@ -19,6 +19,10 @@
     
     <!-- VUE-APP -->
     <div id="root">
+        <div class="input-container">
+            <input type="text" id="new-todo-text" v-model="newTodoText">
+            <button @click="addTodo">Aggiungi</button>
+        </div>
         <div class="list-container">
             <ul>
                 <li v-for="(item, index) in mainData">

@@ -22,11 +22,18 @@ const app = new Vue(
     {
         el: '#root',
         data: {
-            mainData: objArray
+            mainData: objArray,
+            newTodoText: '',
+            newTodoDone: false
         },
         methods: {
             removeTodo: function(i) {
                 this.mainData.splice(i, 1);
+                console.log(this.mainData);
+            },
+            addTodo: function() {
+                this.mainData.push(new Todo(this.newTodoText, this.newTodoDone));
+                console.log(this.mainData);
             }
         }
     }
