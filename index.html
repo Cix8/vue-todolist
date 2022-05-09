@@ -19,7 +19,13 @@
     
     <!-- VUE-APP -->
     <div id="root">
-
+        <div class="list-container">
+            <ul>
+                <li v-for="item in mainData">
+                    <span :class="item.done === true ? 'done' : ''">{{ item.text }}</span>
+                </li>
+            </ul>
+        </div>
     </div>
     <!-- /VUE-APP -->
     
