@@ -32,12 +32,21 @@ const app = new Vue(
                 console.log(this.mainData);
             },
             addTodo: function() {
-                this.mainData.push(new Todo(this.newTodoText, this.newTodoDone));
-                console.log(this.mainData);
+                if (this.notOnlyWhitespaces(this.newTodoText)) {
+                    this.mainData.push(new Todo(this.newTodoText, this.newTodoDone));
+                    console.log(this.mainData);
+                }
                 this.newTodoText = '';
             },
             thisIsDone: function(i) {
                 this.mainData[i].done = !this.mainData[i].done;
+            },
+            notOnlyWhitespaces: function(string) {
+                let result = true;
+                if (string.trim() === '') {
+                    result = false;
+                }
+                return result
             }
         }
     }
