@@ -1,4 +1,3 @@
-const exampleTextArray = ['Fare la spesa', 'Pulire casa', 'Terminare gli esercizi'];
 class Todo {
     constructor(text, done) {
         this.text = text,
@@ -6,23 +5,11 @@ class Todo {
     }
 }
 
-const objArray = [];
-
-for (let i = 0; i < exampleTextArray.length; i++) {
-    if (i === 1) {
-        objArray.push(new Todo(exampleTextArray[i], true));    
-    } else {
-        objArray.push(new Todo(exampleTextArray[i], false));    
-    }
-}
-
-console.log(objArray);
-
 const app = new Vue(
     {
         el: '#root',
         data: {
-            mainData: objArray,
+            mainData: [],
             newTodoText: '',
             newTodoDone: false
         },
@@ -44,10 +31,27 @@ const app = new Vue(
             notOnlyWhitespaces: function(string) {
                 let result = true;
                 if (string.trim() === '') {
+                    console.log('Hai inserito solo spazi bianchi!');
                     result = false;
                 }
                 return result
             }
+        },
+        created() {
+            const exampleTextArray = ['Fare la spesa', 'Pulire casa', 'Terminare gli esercizi'];
+            
+            const objArray = [];
+            
+            for (let i = 0; i < exampleTextArray.length; i++) {
+                if (i === 1) {
+                    objArray.push(new Todo(exampleTextArray[i], true));    
+                } else {
+                    objArray.push(new Todo(exampleTextArray[i], false));    
+                }
+            }
+            
+            console.log(objArray);
+            this.mainData = objArray;
         }
     }
 )
