@@ -37,10 +37,15 @@ li {
     padding: .5rem 1rem 1rem;
 }
 
+.list-container .text {
+    flex-grow: 1;
+}
+
 .list-container span.done {
     text-decoration: line-through;
 }
 
 .list-container .icon-container {
     padding-right: .3rem;
+    cursor: pointer;
 }

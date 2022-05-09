@@ -20,13 +20,13 @@
     <!-- VUE-APP -->
     <div id="root">
         <div class="input-container">
-            <input type="text" id="new-todo-text" v-model="newTodoText">
+            <input type="text" id="new-todo-text" v-model="newTodoText" @keyup.enter="addTodo">
             <button @click="addTodo">Aggiungi</button>
         </div>
         <div class="list-container">
             <ul>
                 <li v-for="(item, index) in mainData">
-                    <div class="text">
+                    <div class="text" @click="thisIsDone(index)">
                         <span :class="item.done === true ? 'done' : ''">{{ item.text }}</span>
                     </div>
                     <div class="icon-container">

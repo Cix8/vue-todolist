@@ -34,6 +34,10 @@ const app = new Vue(
             addTodo: function() {
                 this.mainData.push(new Todo(this.newTodoText, this.newTodoDone));
                 console.log(this.mainData);
+                this.newTodoText = '';
+            },
+            thisIsDone: function(i) {
+                this.mainData[i].done = !this.mainData[i].done;
             }
         }
     }
